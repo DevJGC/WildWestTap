@@ -6,7 +6,9 @@ public class ShotPoint : MonoBehaviour
 {
     // Referencia al Player
     [SerializeField] PlayerScript player;
+    // Variable booleana para saber si el jugador tiene balas
     bool isGun;
+    int bullets;
 
     // Referencia a la escena el colisionador del ratón
     [SerializeField] GameObject pointClick;
@@ -14,6 +16,12 @@ public class ShotPoint : MonoBehaviour
     [SerializeField] ParticleSystem shotParticles;
     // Posición dónde se hace click
     Vector3 worldPosition;
+
+    // Referencia al sonido
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip failShotSound;
+    [SerializeField] AudioClip gunShotSound;
+    
 
     // No utilizado por ahora
     void Start()
@@ -27,6 +35,7 @@ public class ShotPoint : MonoBehaviour
     {
 
         isGun = player.gun;
+        bullets = player.bullets;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitData;
@@ -41,9 +50,21 @@ public class ShotPoint : MonoBehaviour
     {
         if (isGun==true)
         {
-        //audioSource.PlayOneShot(failSound);
+        bullets--;
+        player.bullets = bullets;
+        audioSource.PlayOneShot(gunShotSound);
         pointClick.transform.position = worldPosition;
         shotParticles.Play();
+        }
+        else
+        {
+            audioSource.PlayOneShot(failShotSound);
+        }
+
+        if (bullets==0)
+        {   
+            isGun=false;
+            player.gun = isGun;
 
         }
 
