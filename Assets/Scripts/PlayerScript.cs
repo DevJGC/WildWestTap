@@ -20,23 +20,18 @@ public class PlayerScript : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButton(0))
+
+        if (bullets==0)
         {
-           if (gun==false && bullets==0)
-             {
-            aro.enabled = true;
-           }
-             else
-             {
-            aro.enabled = false;
-            }
-
+            ReloadGun();
         }
-        
-
-
 
     
         
+    }
+
+    public void ReloadGun()
+    {
+        aro.enabled = true; 
     }
 }
