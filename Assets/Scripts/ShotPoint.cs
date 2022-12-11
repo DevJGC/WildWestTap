@@ -21,6 +21,9 @@ public class ShotPoint : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip failShotSound;
     [SerializeField] AudioClip gunShotSound;
+
+    // Actualiza Canvas Disparos y Balas
+    [SerializeField] ReloadButton canvasScript;
     
 
     // No utilizado por ahora
@@ -67,6 +70,8 @@ public class ShotPoint : MonoBehaviour
             player.gun = isGun;
 
         }
+
+        canvasScript.ReloadCanvas();
 
     }
 

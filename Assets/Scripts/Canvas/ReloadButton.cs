@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class ReloadButton : MonoBehaviour
@@ -9,6 +10,7 @@ public class ReloadButton : MonoBehaviour
     // Referencia al Player
     [SerializeField] PlayerScript player;
     [SerializeField] Image aro;
+    [SerializeField] TMP_Text ammoNumber;
 
     public int maxBullets = 6;
 
@@ -31,8 +33,10 @@ public class ReloadButton : MonoBehaviour
     {
        if (player.bullets< maxBullets) 
        {
-        audioSource.PlayOneShot(audioClip);
         player.bullets ++;
+        ReloadCanvas();
+        audioSource.PlayOneShot(audioClip);
+        
         player.gun = true;
         aro.enabled = false;
        }
@@ -40,6 +44,13 @@ public class ReloadButton : MonoBehaviour
         {
             audioSource.PlayOneShot(buttonFail);
         }
+
+    }
+
+    public void ReloadCanvas()
+    {
+        int ammo = player.bullets;  
+        ammoNumber.text = ammo.ToString();
 
     }
 
