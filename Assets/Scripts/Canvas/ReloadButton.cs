@@ -11,17 +11,30 @@ public class ReloadButton : MonoBehaviour
     [SerializeField] PlayerScript player;
     [SerializeField] Image aro;
     [SerializeField] TMP_Text ammoNumber;
+    [SerializeField] TMP_Text levelText;
+    [SerializeField] Image energyBarCanvas;
+    float energyBar;
+
+    [SerializeField] TMP_Text moneyText;
+    int money;
 
     public int maxBullets = 6;
 
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioClip;
     [SerializeField] AudioClip buttonFail;
+
+    int level;
     
     void Start()
     {
+       level = PlayerPrefs.GetInt("level");
+       energyBar = PlayerPrefs.GetInt("energy");
+       money = PlayerPrefs.GetInt("money");
+
        ReloadCanvas();
        Reload();
+
     }
 
     
@@ -53,6 +66,9 @@ public class ReloadButton : MonoBehaviour
         int ammo = player.bulletsPlayer;  
         ammoNumber.text = ammo.ToString();
         ammo = PlayerPrefs.GetInt("bullets");
+        levelText.text = level.ToString();
+        energyBarCanvas.fillAmount = energyBar/100;
+        moneyText.text = money.ToString();
 
     }
 

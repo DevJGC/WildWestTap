@@ -3189,6 +3189,9 @@ MonoBehaviour:
   player: {fileID: 1271945085}
   aro: {fileID: 1725159151}
   ammoNumber: {fileID: 153938246}
+  levelText: {fileID: 1367686882}
+  energyBarCanvas: {fileID: 7433728}
+  moneyText: {fileID: 1307101251}
   maxBullets: 6
   audioSource: {fileID: 1190324332}
   audioClip: {fileID: 8300000, guid: f8da3eee905d84b4892973359e91440d, type: 3}
@@ -3341,6 +3344,19 @@ MonoBehaviour:
   aro: {fileID: 1725159151}
   gun: 1
   bulletsPlayer: 0
+  energy: 0
+  strength: 0
+  sight: 0
+  bulletsMax: 0
+  energyMax: 0
+  strengthMax: 0
+  sightMax: 0
+  bulletsLevel: 0
+  energyLevel: 0
+  strengthLevel: 0
+  sightLevel: 0
+  level: 0
+  money: 0
 --- !u!1 &1282723808
 GameObject:
   m_ObjectHideFlags: 0
@@ -3516,7 +3532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66be97e467102134ebcfefd3397dfc5b, type: 2}
   m_sharedMaterial: {fileID: -8029681708201004953, guid: 66be97e467102134ebcfefd3397dfc5b, type: 2}
@@ -3768,7 +3784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66be97e467102134ebcfefd3397dfc5b, type: 2}
   m_sharedMaterial: {fileID: -8029681708201004953, guid: 66be97e467102134ebcfefd3397dfc5b, type: 2}

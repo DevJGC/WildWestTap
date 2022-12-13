@@ -21,7 +21,12 @@ public class MenuPlay : MonoBehaviour
            
             UnityEditor.EditorApplication.isPlaying = false;
         
+        }
 
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            
+            PlayGame();
         }
     }
 

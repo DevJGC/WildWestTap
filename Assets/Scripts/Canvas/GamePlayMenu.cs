@@ -18,12 +18,7 @@ public class GamePlayMenu : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-           
-            SceneManager.LoadScene("Menu");
-            //Application.Quit();
-        }
+
         
     }
 }

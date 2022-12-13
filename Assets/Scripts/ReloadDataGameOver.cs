@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class LoadVariables : MonoBehaviour
+
+public class ReloadDataGameOver : MonoBehaviour
 {
     // Variables primarias estaticas (de inicio)
     int bullets;
+    [SerializeField] TMP_Text bulletText;
     int energy;
     int strength;
     int sight;
@@ -29,28 +33,12 @@ public class LoadVariables : MonoBehaviour
 
 
     
-    void Start()
+    void Awake()
     {
         // Crea las variables, y si no existen, les asigna valor inicial
      
     
-        PlayerPrefs.GetInt("bullets", 6);
-        PlayerPrefs.GetInt("energy", 10);
-        PlayerPrefs.GetInt("strength", 10);
-        PlayerPrefs.GetInt("sight", 50);
 
-        PlayerPrefs.GetInt("bulletsMax", 24);
-        PlayerPrefs.GetInt("energyMax", 100);
-        PlayerPrefs.GetInt("strengthMax", 100);
-        PlayerPrefs.GetInt("sightMax", 40);
-
-        PlayerPrefs.GetInt("bulletsLevel", 1);
-        PlayerPrefs.GetInt("energyLevel", 1);
-        PlayerPrefs.GetInt("strengthLevel", 1);
-        PlayerPrefs.GetInt("sightLevel", 1);
-
-        PlayerPrefs.GetInt("level", 1);
-        PlayerPrefs.GetInt("money", 0);
     
 
 
@@ -81,7 +69,7 @@ public class LoadVariables : MonoBehaviour
 
         // Muestra variables por consola
 
-        // Debug.Log("Balas " + bullets);
+         
         // Debug.Log("Energía " + energy);
         // Debug.Log("Fuerza " + strength);
         // Debug.Log("Visión " + sight);
@@ -101,35 +89,28 @@ public class LoadVariables : MonoBehaviour
         // Debug.Log("Nivel " + level);
         // Debug.Log("Dinero " + money);
 
-        
 
+
+        
+        SynVariablesToCanvas();
+        Debug.Log("Balas " + bullets);
 
         
     }
 
     void Update()
     {
-     if (Input.GetKeyDown(KeyCode.R))
-        {
-        PlayerPrefs.SetInt("bullets", 6);
-        PlayerPrefs.SetInt("energy", 10);
-        PlayerPrefs.SetInt("strength", 10);
-        PlayerPrefs.SetInt("sight", 50);
 
-        PlayerPrefs.SetInt("bulletsMax", 24);
-        PlayerPrefs.SetInt("energyMax", 100);
-        PlayerPrefs.SetInt("strengthMax", 100);
-        PlayerPrefs.SetInt("sightMax", 40);
-
-        PlayerPrefs.SetInt("bulletsLevel", 1);
-        PlayerPrefs.SetInt("energyLevel", 1);
-        PlayerPrefs.SetInt("strengthLevel", 1);
-        PlayerPrefs.SetInt("sightLevel", 1);
-
-        PlayerPrefs.SetInt("level", 1);
-        PlayerPrefs.SetInt("money", 0);
-
-        }
         
     }
+
+
+    // Funciones de actualización de variables
+   public void SynVariablesToCanvas()
+   {
+        
+        bulletText.text = bullets.ToString();
+       
+
+   }
 }
