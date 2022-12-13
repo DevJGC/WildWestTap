@@ -37,12 +37,12 @@ public class LoadVariables : MonoBehaviour
         PlayerPrefs.GetInt("bullets", 6);
         PlayerPrefs.GetInt("energy", 10);
         PlayerPrefs.GetInt("strength", 10);
-        PlayerPrefs.GetInt("sight", 50);
+        PlayerPrefs.GetInt("sight", 60);
 
         PlayerPrefs.GetInt("bulletsMax", 24);
         PlayerPrefs.GetInt("energyMax", 100);
         PlayerPrefs.GetInt("strengthMax", 100);
-        PlayerPrefs.GetInt("sightMax", 40);
+        PlayerPrefs.GetInt("sightMax", 50);
 
         PlayerPrefs.GetInt("bulletsLevel", 1);
         PlayerPrefs.GetInt("energyLevel", 1);
@@ -114,12 +114,12 @@ public class LoadVariables : MonoBehaviour
         PlayerPrefs.SetInt("bullets", 6);
         PlayerPrefs.SetInt("energy", 10);
         PlayerPrefs.SetInt("strength", 10);
-        PlayerPrefs.SetInt("sight", 50);
+        PlayerPrefs.SetInt("sight", 60);
 
         PlayerPrefs.SetInt("bulletsMax", 24);
         PlayerPrefs.SetInt("energyMax", 100);
         PlayerPrefs.SetInt("strengthMax", 100);
-        PlayerPrefs.SetInt("sightMax", 40);
+        PlayerPrefs.SetInt("sightMax", 50);
 
         PlayerPrefs.SetInt("bulletsLevel", 1);
         PlayerPrefs.SetInt("energyLevel", 1);
