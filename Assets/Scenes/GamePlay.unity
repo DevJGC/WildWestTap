@@ -512,7 +512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 6
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 66be97e467102134ebcfefd3397dfc5b, type: 2}
   m_sharedMaterial: {fileID: -8029681708201004953, guid: 66be97e467102134ebcfefd3397dfc5b, type: 2}
@@ -3340,7 +3340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aro: {fileID: 1725159151}
   gun: 1
-  bullets: 6
+  bulletsPlayer: 0
 --- !u!1 &1282723808
 GameObject:
   m_ObjectHideFlags: 0

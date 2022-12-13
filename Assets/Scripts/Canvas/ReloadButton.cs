@@ -20,7 +20,8 @@ public class ReloadButton : MonoBehaviour
     
     void Start()
     {
-        
+       ReloadCanvas();
+       Reload();
     }
 
     
@@ -31,9 +32,9 @@ public class ReloadButton : MonoBehaviour
 
     public void Reload()
     {
-       if (player.bullets< maxBullets) 
+       if (player.bulletsPlayer< maxBullets) 
        {
-        player.bullets ++;
+        player.bulletsPlayer ++;
         ReloadCanvas();
         audioSource.PlayOneShot(audioClip);
         
@@ -49,8 +50,9 @@ public class ReloadButton : MonoBehaviour
 
     public void ReloadCanvas()
     {
-        int ammo = player.bullets;  
+        int ammo = player.bulletsPlayer;  
         ammoNumber.text = ammo.ToString();
+        ammo = PlayerPrefs.GetInt("bullets");
 
     }
 

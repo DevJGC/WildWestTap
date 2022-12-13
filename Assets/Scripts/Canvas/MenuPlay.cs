@@ -14,7 +14,15 @@ public class MenuPlay : MonoBehaviour
     
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+            Application.Quit();
+           
+            UnityEditor.EditorApplication.isPlaying = false;
         
+
+        }
     }
 
     public void PlayGame()

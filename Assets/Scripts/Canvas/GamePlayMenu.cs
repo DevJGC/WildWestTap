@@ -5,17 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GamePlayMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    int balas;
+    
     void Start()
     {
+        //PlayerPrefs.Save();
+        //balas = PlayerPrefs.GetInt("bullets");
+        //Debug.Log("Balas " + balas);
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+           
             SceneManager.LoadScene("Menu");
             //Application.Quit();
         }

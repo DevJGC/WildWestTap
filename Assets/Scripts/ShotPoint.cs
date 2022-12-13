@@ -38,7 +38,7 @@ public class ShotPoint : MonoBehaviour
     {
 
         isGun = player.gun;
-        bullets = player.bullets;
+        bullets = player.bulletsPlayer;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitData;
@@ -54,7 +54,7 @@ public class ShotPoint : MonoBehaviour
         if (isGun==true)
         {
         bullets--;
-        player.bullets = bullets;
+        player.bulletsPlayer = bullets;
         audioSource.PlayOneShot(gunShotSound);
         pointClick.transform.position = worldPosition;
         shotParticles.Play();

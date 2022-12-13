@@ -9,8 +9,14 @@ public class PlayerScript : MonoBehaviour
 
     public bool gun;
 
-    public int bullets=6;
+    public int bulletsPlayer;
     
+    void Awake()
+    {
+      
+       bulletsPlayer = PlayerPrefs.GetInt("bullets");
+
+    }
     void Start()
     {
        
@@ -21,10 +27,14 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
 
-        if (bullets==0)
+        if (bulletsPlayer<=0)
         {
             ReloadGun();
         }
+
+        PlayerPrefs.SetInt("bullets", bulletsPlayer);
+        
+        
 
     
         
@@ -34,4 +44,11 @@ public class PlayerScript : MonoBehaviour
     {
         aro.enabled = true; 
     }
+
+
+
+
+
 }
+
+
