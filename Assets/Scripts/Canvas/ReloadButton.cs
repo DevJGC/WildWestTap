@@ -25,12 +25,30 @@ public class ReloadButton : MonoBehaviour
     [SerializeField] AudioClip buttonFail;
 
     int level;
+
+
+    // Niveles de mejoras tomadas del player
+
+    int bulletsLevel;
+    [SerializeField] Text bulletsLevelText;
+    int energyLevel;
+    [SerializeField] Text energyLevelText;
+    int strengthLevel;
+    [SerializeField] Text strengthLevelText;
+    int sightLevel; 
+    [SerializeField] Text sightLevelText;
     
     void Start()
     {
        level = PlayerPrefs.GetInt("level");
        energyBar = PlayerPrefs.GetInt("energy");
        money = PlayerPrefs.GetInt("money");
+
+        bulletsLevel = PlayerPrefs.GetInt("bulletsLevel");
+        energyLevel = PlayerPrefs.GetInt("energyLevel");
+        strengthLevel = PlayerPrefs.GetInt("strengthLevel");
+        sightLevel = PlayerPrefs.GetInt("sightLevel");
+
 
        ReloadCanvas();
        Reload();
@@ -69,6 +87,12 @@ public class ReloadButton : MonoBehaviour
         levelText.text = level.ToString();
         energyBarCanvas.fillAmount = energyBar/100;
         moneyText.text = money.ToString();
+
+        bulletsLevelText.text = bulletsLevel.ToString();
+        energyLevelText.text = energyLevel.ToString();
+        strengthLevelText.text = strengthLevel.ToString();
+        sightLevelText.text = sightLevel.ToString();
+        
 
     }
 
