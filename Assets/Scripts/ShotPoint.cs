@@ -9,6 +9,7 @@ public class ShotPoint : MonoBehaviour
     // Variable booleana para saber si el jugador tiene balas
     bool isGun;
     int bullets;
+    int money;
 
     // Referencia a la escena el colisionador del ratón
     [SerializeField] GameObject pointClick;
@@ -24,6 +25,11 @@ public class ShotPoint : MonoBehaviour
 
     // Actualiza Canvas Disparos y Balas
     [SerializeField] ReloadButton canvasScript;
+
+    // Enemigo
+    public bool isEnemy;
+    [SerializeField] ParticleSystem dollarParticles;
+
     
 
     // No utilizado por ahora
@@ -51,6 +57,8 @@ public class ShotPoint : MonoBehaviour
     // Si se hace click en el objeto colisionador, se reproduce el sonido y las partículas
     public void OnMouseDown()
     {
+        enemySync();
+
         if (isGun==true)
         {
         bullets--;
@@ -72,8 +80,25 @@ public class ShotPoint : MonoBehaviour
         }
 
         canvasScript.ReloadCanvas();
+        
 
     }
+
+    public void enemySync()
+    {
+        if (isEnemy==true && bullets>0)
+        {
+            player.money ++;
+            dollarParticles.Play();
+            
+            //Debug.Log(player.money);
+            //player.bulletsPlayer = bullets;
+            //player.gun = isGun;
+            //canvasScript.ReloadCanvas();
+        }
+       
+    }
+
 
 
 }

@@ -15,7 +15,7 @@ public class ReloadButton : MonoBehaviour
     [SerializeField] Image energyBarCanvas;
     float energyBar;
 
-    [SerializeField] TMP_Text moneyText;
+    [SerializeField] TMP_Text moneyTextCanvas;
     int money;
 
     public int maxBullets = 6;
@@ -42,7 +42,7 @@ public class ReloadButton : MonoBehaviour
     {
        level = PlayerPrefs.GetInt("level");
        energyBar = PlayerPrefs.GetInt("energy");
-       money = PlayerPrefs.GetInt("money");
+       player.money = PlayerPrefs.GetInt("money");
 
         bulletsLevel = PlayerPrefs.GetInt("bulletsLevel");
         energyLevel = PlayerPrefs.GetInt("energyLevel");
@@ -86,7 +86,7 @@ public class ReloadButton : MonoBehaviour
         ammo = PlayerPrefs.GetInt("bullets");
         levelText.text = level.ToString();
         energyBarCanvas.fillAmount = energyBar/100;
-        moneyText.text = money.ToString();
+        moneyTextCanvas.text = player.money.ToString();
 
         bulletsLevelText.text = bulletsLevel.ToString();
         energyLevelText.text = energyLevel.ToString();
