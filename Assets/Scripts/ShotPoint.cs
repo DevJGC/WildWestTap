@@ -37,6 +37,8 @@ public class ShotPoint : MonoBehaviour
     [SerializeField] AudioClip coin;
     [SerializeField] AudioClip dead;
 
+    [SerializeField] Rigidbody lookToPlayer;
+
     
 
     
@@ -105,12 +107,14 @@ public class ShotPoint : MonoBehaviour
 
         if(energyEnemy <= 0.001f && isEnemy==true)
         {
+            
             audioSource.PlayOneShot(dead);
             energyEnemy = 0f;
             
             enemyAnim.SetTrigger("Death");
             Destroy(gameObject,2f);
             isEnemy = false;
+            lookToPlayer.isKinematic = true;
             
         }
 
