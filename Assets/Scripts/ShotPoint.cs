@@ -33,6 +33,10 @@ public class ShotPoint : MonoBehaviour
     public float energyEnemy=1f;
     [SerializeField] Image enemyBarCanvas;
 
+    [SerializeField] Animator enemyAnim;
+    [SerializeField] AudioClip coin;
+    [SerializeField] AudioClip dead;
+
     
 
     
@@ -77,6 +81,7 @@ public class ShotPoint : MonoBehaviour
         audioSource.PlayOneShot(gunShotSound);
         pointClick.transform.position = worldPosition;
         shotParticles.Play();
+        audioSource.PlayOneShot(coin);
         }
         else
         {
@@ -98,15 +103,20 @@ public class ShotPoint : MonoBehaviour
     public void enemySync()
     {
 
-        if(energyEnemy <= 0)
+        if(energyEnemy <= 0.001f && isEnemy==true)
         {
-            //isEnemy = false;
-            Destroy(gameObject);
+            audioSource.PlayOneShot(dead);
+            energyEnemy = 0f;
+            
+            enemyAnim.SetTrigger("Death");
+            Destroy(gameObject,2f);
+            isEnemy = false;
             
         }
 
         if (isEnemy==true && bullets>0)
         {
+            //enemyAnim.SetTrigger("Mini_Death");
             player.money ++;
             dollarParticles.Play();
             energyEnemy = energyEnemy -0.1f;
