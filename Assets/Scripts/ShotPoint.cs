@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShotPoint : MonoBehaviour
 {
@@ -29,13 +30,23 @@ public class ShotPoint : MonoBehaviour
     // Enemigo
     public bool isEnemy;
     [SerializeField] ParticleSystem dollarParticles;
+    public float energyEnemy=1f;
+    [SerializeField] Image enemyBarCanvas;
+
+    
 
     
 
     // No utilizado por ahora
     void Start()
     {
-       
+      if (isEnemy==true) 
+      {
+        enemyBarCanvas.fillAmount = energyEnemy;
+      }
+      
+
+
 
     }
  
@@ -86,10 +97,22 @@ public class ShotPoint : MonoBehaviour
 
     public void enemySync()
     {
+
+        if(energyEnemy <= 0)
+        {
+            //isEnemy = false;
+            Destroy(gameObject);
+            
+        }
+
         if (isEnemy==true && bullets>0)
         {
             player.money ++;
             dollarParticles.Play();
+            energyEnemy = energyEnemy -0.1f;
+
+            enemyBarCanvas.fillAmount = energyEnemy;
+
             
             //Debug.Log(player.money);
             //player.bulletsPlayer = bullets;
