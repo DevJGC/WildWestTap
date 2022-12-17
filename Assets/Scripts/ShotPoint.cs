@@ -37,7 +37,8 @@ public class ShotPoint : MonoBehaviour
     [SerializeField] AudioClip coin;
     [SerializeField] AudioClip dead;
 
-    [SerializeField] Rigidbody lookToPlayer;
+   
+    [SerializeField] float damagePlayer;
 
     
 
@@ -49,6 +50,8 @@ public class ShotPoint : MonoBehaviour
       if (isEnemy==true) 
       {
         enemyBarCanvas.fillAmount = energyEnemy;
+        damagePlayer = player.strength;
+
       }
       
 
@@ -105,7 +108,7 @@ public class ShotPoint : MonoBehaviour
     public void enemySync()
     {
 
-        if(energyEnemy <= 0.001f && isEnemy==true)
+        if(energyEnemy <= 0f && isEnemy==true)
         {
             
             audioSource.PlayOneShot(dead);
@@ -114,7 +117,7 @@ public class ShotPoint : MonoBehaviour
             enemyAnim.SetTrigger("Death");
             Destroy(gameObject,2f);
             isEnemy = false;
-            lookToPlayer.isKinematic = true;
+           // lookToPlayer.isKinematic = true;
             
         }
 
@@ -123,7 +126,8 @@ public class ShotPoint : MonoBehaviour
             //enemyAnim.SetTrigger("Mini_Death");
             player.money ++;
             dollarParticles.Play();
-            energyEnemy = energyEnemy -0.1f;
+
+            energyEnemy = energyEnemy - (damagePlayer / 100);
 
             enemyBarCanvas.fillAmount = energyEnemy;
 
@@ -132,6 +136,19 @@ public class ShotPoint : MonoBehaviour
             //player.bulletsPlayer = bullets;
             //player.gun = isGun;
             //canvasScript.ReloadCanvas();
+        }
+
+        if(energyEnemy == 0)
+        {
+            
+            audioSource.PlayOneShot(dead);
+            energyEnemy = 0f;
+            
+            enemyAnim.SetTrigger("Death");
+            Destroy(gameObject,2f);
+            isEnemy = false;
+        
+            
         }
        
     }
