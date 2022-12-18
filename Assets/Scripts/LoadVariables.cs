@@ -126,7 +126,7 @@ public class LoadVariables : MonoBehaviour
         PlayerPrefs.SetInt("strengthLevel", 1);
         PlayerPrefs.SetInt("sightLevel", 1);
 
-        PlayerPrefs.SetInt("level", 1);
+        PlayerPrefs.SetInt("level", 0);
         PlayerPrefs.SetInt("money", 0);
 
         }

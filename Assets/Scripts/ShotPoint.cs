@@ -123,7 +123,7 @@ public class ShotPoint : MonoBehaviour
 
         if (isEnemy==true && bullets>0)
         {
-            //enemyAnim.SetTrigger("Mini_Death");
+            enemyAnim.SetTrigger("Damage");
             player.money ++;
             dollarParticles.Play();
 
@@ -138,7 +138,7 @@ public class ShotPoint : MonoBehaviour
             //canvasScript.ReloadCanvas();
         }
 
-        if(energyEnemy == 0)
+        if(energyEnemy <= 0.05f)
         {
             
             audioSource.PlayOneShot(dead);
