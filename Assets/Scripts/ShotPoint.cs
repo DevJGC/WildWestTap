@@ -40,6 +40,8 @@ public class ShotPoint : MonoBehaviour
    
     [SerializeField] float damagePlayer;
 
+    [SerializeField] LevelControl levelControl;
+
     
 
     
@@ -138,7 +140,7 @@ public class ShotPoint : MonoBehaviour
             //canvasScript.ReloadCanvas();
         }
 
-        if(energyEnemy <= 0.05f)
+        if(energyEnemy <= 0.05f && isEnemy==true)
         {
             
             audioSource.PlayOneShot(dead);
@@ -147,7 +149,7 @@ public class ShotPoint : MonoBehaviour
             enemyAnim.SetTrigger("Death");
             Destroy(gameObject,2f);
             isEnemy = false;
-        
+            levelControl.KillsCounter();  
             
         }
        
