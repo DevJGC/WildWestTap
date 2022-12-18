@@ -21,4 +21,14 @@ public class GameOverToMenu : MonoBehaviour
         }
         
     }
+
+    public void GoToGamePlay()
+    {
+        SceneManager.LoadScene("GamePlay");
+    }
+
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

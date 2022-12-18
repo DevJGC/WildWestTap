@@ -49,6 +49,14 @@ public class ReloadDataGameOver : MonoBehaviour
     [SerializeField] TMP_Text moneyText;
 
 
+    // Botones de compra
+    [SerializeField] Button bulletButton;
+    [SerializeField] Button energyButton;
+    [SerializeField] Button strengthButton;
+    [SerializeField] Button sightButton;
+
+
+
     
     void Awake()
     {
@@ -115,6 +123,13 @@ public class ReloadDataGameOver : MonoBehaviour
         
     }
 
+    void Start()
+    {
+      ActiveButtonsBuy();
+
+    }
+
+
     void Update()
     {
 
@@ -140,16 +155,63 @@ public class ReloadDataGameOver : MonoBehaviour
         sightLevelText.text = sightLevel.ToString();
         
         
-
-
-
-
-        
         levelText.text = level.ToString();
         moneyText.text = money.ToString();
-        
-
-       
-
+              
    }
+
+  public void ActiveButtonsBuy()
+  {
+
+    if (money < 100)
+    {
+
+      bulletButton.interactable = false;
+      energyButton.interactable = false;
+      strengthButton.interactable = false;
+      sightButton.interactable = false;
+    }
+    else
+    {
+      bulletButton.interactable = true;
+      energyButton.interactable = true;
+      strengthButton.interactable = true;
+      sightButton.interactable = true;
+    }
+
+    if (bulletsLevel>=4) bulletButton.interactable = false;
+    
+    if (energyLevel>=10) energyButton.interactable = false;
+    
+    if (strengthLevel>=10) strengthButton.interactable = false;
+    
+    if (sightLevel>=6) sightButton.interactable = false;
+    
+
+  }
+
+  public void Buy()
+  {
+    money -= 100;
+    moneyText.text = money.ToString();
+    PlayerPrefs.SetInt("money", money);
+    ActiveButtonsBuy();
+  }
+
+  public void BuyBullets()
+  {
+    bulletsLevel++;
+    //bulletsMax += 10;
+    //bullets += 10;
+    //bulletText.text = bullets.ToString();
+    //bulletMaxText.text = bulletsMax.ToString();
+    bulletLevelText.text = bulletsLevel.ToString();
+    //PlayerPrefs.SetInt("bullets", bullets);
+    //PlayerPrefs.SetInt("bulletsMax", bulletsMax);
+    PlayerPrefs.SetInt("bulletsLevel", bulletsLevel);
+
+  }
+
+
+
 }

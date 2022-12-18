@@ -50,6 +50,12 @@ public class ReloadButton : MonoBehaviour
         sightLevel = PlayerPrefs.GetInt("sightLevel");
 
 
+       // Desarrollar esto, para controlar los niveles y mejoras 
+       if(bulletsLevel==2)
+       {
+            maxBullets = 12;
+       }
+
        ReloadCanvas();
        Reload();
 
