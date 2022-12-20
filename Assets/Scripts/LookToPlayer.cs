@@ -10,8 +10,9 @@ public class LookToPlayer : MonoBehaviour
     [SerializeField] private Transform[] m_Waypoints;
     [SerializeField] private int m_CurrentWaypointIndex=0;
     
-    [SerializeField] ShotPoint shotPoint;
-    
+    [SerializeField] EnemyScript enemyScript;
+
+
     
 
     
@@ -25,7 +26,7 @@ public class LookToPlayer : MonoBehaviour
 
     void Update()
     {
-        if (m_CurrentWaypointIndex < m_Waypoints.Length  && shotPoint.energyEnemy>0)
+        if (m_CurrentWaypointIndex < m_Waypoints.Length  && enemyScript.energyEnemy>0)
         {
             transform.LookAt(m_Waypoints[m_CurrentWaypointIndex].position);
             transform.position = Vector3.MoveTowards(transform.position, m_Waypoints[m_CurrentWaypointIndex].position, m_Speed * Time.deltaTime);
@@ -38,6 +39,8 @@ public class LookToPlayer : MonoBehaviour
         {
             m_CurrentWaypointIndex = 0;
         }
+
+
        
 
         
