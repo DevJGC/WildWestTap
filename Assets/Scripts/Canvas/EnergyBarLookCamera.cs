@@ -13,7 +13,10 @@ public class EnergyBarLookCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.forward = cam.transform.forward;
+       
+        transform.LookAt(transform.position + cam.transform.rotation * Vector3.forward, cam.transform.rotation * Vector3.up);
+
+        //transform.forward = cam.transform.forward;
         
     }
 }

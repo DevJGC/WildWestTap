@@ -45,6 +45,12 @@ public class LevelControl : MonoBehaviour
             levelTitleText.text = "Tutorial";
             levelSubTitleText.text = "Eliminate all guards";
         }
+
+        if (levelNumber == 1)
+        {
+            levelTitleText.text = "Clean";
+            levelSubTitleText.text = "Remove the branches";
+        }
     }
 
     public void LevelTitle(string title)
@@ -60,7 +66,7 @@ public class LevelControl : MonoBehaviour
     public void KillsCounter()
     {
         kills++;
-        if (kills == 4 && level == 0)
+        if (kills == 4 && level == 0 || kills == 4 && level == 1)
         {
             levelCompleteCanvas.SetActive(true);
         }
