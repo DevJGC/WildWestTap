@@ -401,20 +401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962405f0e98ec114797c42f0e7dbfdb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: 6
-  energy: 10
-  strength: 10
-  sight: 50
-  bulletsMax: 24
-  energyMax: 100
-  strengthMax: 100
-  sightMax: 40
-  bulletsLevel: 1
-  energyLevel: 1
-  strengthLevel: 1
-  sightLevel: 1
-  level: 1
-  money: 0
 --- !u!1 &1446363965
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,8 +461,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 66be97e467102134ebcfefd3397dfc5b, type: 2}
-  m_sharedMaterial: {fileID: -8029681708201004953, guid: 66be97e467102134ebcfefd3397dfc5b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -500,8 +486,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 39.79
+  m_fontSizeBase: 39.79
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0

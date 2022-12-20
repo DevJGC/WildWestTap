@@ -14,6 +14,9 @@ public class LevelControl : MonoBehaviour
 
     [SerializeField] GameObject levelCompleteCanvas;
     [SerializeField] PlayerScript playerScript;
+
+    // Grupos Objects Levels
+    [SerializeField] GameObject[] levelGroup;
     
 
     
@@ -23,6 +26,8 @@ public class LevelControl : MonoBehaviour
         levelNumber.text = level.ToString();
 
         LevelNumber(level);
+
+        ActivateLevels();
 
         
     }
@@ -73,6 +78,24 @@ public class LevelControl : MonoBehaviour
         SceneManager.LoadScene("GameOver");
 
     }
+
+
+    public void ActivateLevels()
+
+    {
+        for (int i = 0; i < levelGroup.Length; i++)
+        {
+            if (i == level)
+            {
+                levelGroup[i].SetActive(true);
+            }
+            else
+            {
+                levelGroup[i].SetActive(false);
+            }
+        }
+    }
+
     
 
         
