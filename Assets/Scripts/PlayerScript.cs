@@ -13,13 +13,13 @@ public class PlayerScript : MonoBehaviour
 
     public bool gun;
 
-    public int bulletsPlayer;
+    public int bulletsPlayer=6;
 
 
 
 
     // Variables primarias estaticas (de inicio)
-    //int bullets;
+    public int bullets=6;
     public int energy;
     public int strength;
     public int sight;
@@ -45,7 +45,7 @@ public class PlayerScript : MonoBehaviour
     {
       
         // Carga todas las variables guardadas en el PlayerPrefs
-        bulletsPlayer = PlayerPrefs.GetInt("bullets");
+       // bulletsPlayer = PlayerPrefs.GetInt("bullets");
         
         energy = PlayerPrefs.GetInt("energy");
         strength = PlayerPrefs.GetInt("strength");
