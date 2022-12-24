@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 // Para cambiar de Escena desde la Escena Menu y su Canvas
 public class MenuPlay : MonoBehaviour
 {
