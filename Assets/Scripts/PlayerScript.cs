@@ -5,9 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-
+// Este es el Script principal del Player
 public class PlayerScript : MonoBehaviour
 {
+    // Referencia a la imagen del aro de avisa de falta de municion
     [SerializeField] Image aro;
 
     public bool gun;
@@ -36,14 +37,14 @@ public class PlayerScript : MonoBehaviour
     public int strengthLevel;
     public int sightLevel;
 
-    // Variables de experiencia (del juego)
+    // Variables de nivel y dinero
     public int level;
     public int money;
     
     void Awake()
     {
       
-        // Ojo con bullet y bulletsPlayer
+        // Carga todas las variables guardadas en el PlayerPrefs
         bulletsPlayer = PlayerPrefs.GetInt("bullets");
         
         energy = PlayerPrefs.GetInt("energy");
@@ -73,14 +74,14 @@ public class PlayerScript : MonoBehaviour
     
     void Update()
     {
-
+        // Si no hay municion, se activa el aro de aviso
         if (bulletsPlayer<=0)
         {
             ReloadGun();
         }
 
 
-
+        // Si se pulsa la tecla Escape, se vuelve al menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SyncVariables();
@@ -88,26 +89,24 @@ public class PlayerScript : MonoBehaviour
                
         }
 
+        // Si se pulsa la tecla Enter, va al Inventario
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SyncVariables();
             SceneManager.LoadScene("GameOver");
         }
 
-       
-        
-        
-
-    
         
     }
 
+    // Funcion que activa el aro de aviso de falta de municion
     public void ReloadGun()
     {
         aro.enabled = true; 
     }
 
 
+    // Funcion que guarda todas las variables en el PlayerPrefs
     public void SyncVariables()
     {
         PlayerPrefs.SetInt("bullets", bulletsPlayer);
@@ -130,9 +129,6 @@ public class PlayerScript : MonoBehaviour
 
 
     }
-
-
-
 
 
 }

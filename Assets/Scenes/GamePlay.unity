@@ -2849,6 +2849,53 @@ MonoBehaviour:
   failShotSound: {fileID: 8300000, guid: 25c21831cd968f04caaad7a8e096c604, type: 3}
   gunShotSound: {fileID: 8300000, guid: b5a8a3a5045abfb42b61ff3eea1fd9f4, type: 3}
   canvasScript: {fileID: 1190324331}
+--- !u!1 &477224757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 477224759}
+  - component: {fileID: 477224758}
+  m_Layer: 0
+  m_Name: Level2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &477224758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477224757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5299d035bde2c34cbb175c38effc65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelGroup:
+  - {fileID: 950136698}
+  - {fileID: 1077833531}
+--- !u!4 &477224759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477224757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.806001, y: 1.4743452, z: -17.958271}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &491363709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10866,6 +10913,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10951,6 +10999,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192cc4917d92cec46af7694ee2a90bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf3d5c9dc02d864ca24e394a31fd10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1271945085}
+  camara: {fileID: 963194227}
+  view: 60
 --- !u!1 &974966670
 GameObject:
   m_ObjectHideFlags: 0
@@ -51874,6 +51937,7 @@ MonoBehaviour:
   levelGroup:
   - {fileID: 950136698}
   - {fileID: 1077833531}
+  - {fileID: 477224757}
 --- !u!4 &2110094384
 Transform:
   m_ObjectHideFlags: 0

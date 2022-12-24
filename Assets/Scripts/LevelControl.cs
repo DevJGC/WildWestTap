@@ -22,14 +22,15 @@ public class LevelControl : MonoBehaviour
     
     void Start()
     {
+        // Carga la variable Level y la actualiza en el canvas
         level = PlayerPrefs.GetInt("level");
         levelNumber.text = level.ToString();
 
+        // Llama al metodo enviando el nivel actual
         LevelNumber(level);
 
+        // Llama al metodo enviando el titulo del nivel
         ActivateLevels();
-
-        
     }
 
     
@@ -38,6 +39,7 @@ public class LevelControl : MonoBehaviour
         
     }
 
+    // Segun el nivel, asigna unos Strings para el titulo y subtitulo
     public void LevelNumber(int levelNumber)
     {
         if (levelNumber == 0)
@@ -51,18 +53,27 @@ public class LevelControl : MonoBehaviour
             levelTitleText.text = "Clean";
             levelSubTitleText.text = "Remove the branches";
         }
+
+        if (levelNumber == 2)
+        {
+            levelTitleText.text = "Eliminate";
+            levelSubTitleText.text = "Everything that moves";
+        }
     }
 
+    // Recoge el texto del titulo
     public void LevelTitle(string title)
     {
         levelTitleText.text = title;
     }
 
+    // Recoge el texto del subtitulo
     public void LevelSubTitle(string subTitle)
     {
         levelSubTitleText.text = subTitle;
     }
 
+    // Cuenta las muertes de los enemigos segun el nivel en el que estemos
     public void KillsCounter()
     {
         kills++;
@@ -70,9 +81,14 @@ public class LevelControl : MonoBehaviour
         {
             levelCompleteCanvas.SetActive(true);
         }
+
+        if (kills == 8 && level == 2)
+        {
+            levelCompleteCanvas.SetActive(true);
+        }
     }
 
-
+    // Carga el siguiente nivel
     public void NextLevel()
     {
         //levelNumber = PlayerPrefs.GetInt("level");
@@ -85,7 +101,7 @@ public class LevelControl : MonoBehaviour
 
     }
 
-
+    // Activa los grupos de objetos segun el nivel
     public void ActivateLevels()
 
     {

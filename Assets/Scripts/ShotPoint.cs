@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+// Este Script detecta el punto del disparo
 public class ShotPoint : MonoBehaviour
 {
     // Referencia al Player
@@ -40,8 +40,6 @@ public class ShotPoint : MonoBehaviour
     // Busca dónde está el ratón sobre el objeto colisionador
     void Update()
     {
-
-
         isGun = player.gun;
         bullets = player.bulletsPlayer;
 
@@ -82,9 +80,6 @@ public class ShotPoint : MonoBehaviour
         
 
     }
-
-  
-
 
 
 }

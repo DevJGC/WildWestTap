@@ -46,7 +46,7 @@ public class EnemyScript : MonoBehaviour
 
     
 
-    // No utilizado por ahora
+    // Si este objeto es Enemigo actualiza el valor de su energia y el daño del player
     void Start()
     {
       if (isEnemy==true) 
@@ -55,17 +55,12 @@ public class EnemyScript : MonoBehaviour
         damagePlayer = player.strength;
 
       }
-      
-
-
 
     }
  
     // Busca dónde está el ratón sobre el objeto colisionador
     void Update()
     {
-
-
         isGun = player.gun;
         bullets = player.bulletsPlayer;
 
@@ -108,6 +103,7 @@ public class EnemyScript : MonoBehaviour
 
     }
 
+    // Si el enemigo tiene energia, se le resta el daño del player
     public void enemySync()
     {
 
@@ -155,7 +151,5 @@ public class EnemyScript : MonoBehaviour
         }
        
     }
-
-
 
 }

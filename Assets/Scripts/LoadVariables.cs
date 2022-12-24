@@ -76,41 +76,17 @@ public class LoadVariables : MonoBehaviour
 
 
 
-        
-
-
-        // Muestra variables por consola
-
-        // Debug.Log("Balas " + bullets);
-        // Debug.Log("Energía " + energy);
-        // Debug.Log("Fuerza " + strength);
-        // Debug.Log("Visión " + sight);
-
-        // Debug.Log("Balas Max " + bulletsMax);
-        // Debug.Log("Energía Max " + energyMax);
-        // Debug.Log("Fuerza Max " + strengthMax);
-        // Debug.Log("Visión Max " + sightMax);
-
-
-        // Debug.Log("Balas Level " + bulletsLevel);
-        // Debug.Log("Energía Level " + energyLevel);
-        // Debug.Log("Fuerza Level " + strengthLevel);
-        // Debug.Log("Visión Level " + sightLevel);
-
-
-        // Debug.Log("Nivel " + level);
-        // Debug.Log("Dinero " + money);
-
-        
-
 
         
     }
 
+
+    // Si se pulsa R se resetean todos los valores (para testeo)
     void Update()
     {
      if (Input.GetKeyDown(KeyCode.R))
         {
+            
         PlayerPrefs.SetInt("bullets", 6);
         PlayerPrefs.SetInt("energy", 10);
         PlayerPrefs.SetInt("strength", 10);

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+// Para cambiar de Escena desde la Escena Menu y su Canvas
 public class MenuPlay : MonoBehaviour
 {
     
@@ -14,6 +14,7 @@ public class MenuPlay : MonoBehaviour
     
     void Update()
     {
+        // Si se pulsa Escape sale del editor y del juego
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             
@@ -23,6 +24,7 @@ public class MenuPlay : MonoBehaviour
         
         }
 
+        // Si se pulsa Enter se cambia de Escena
         if(Input.GetKeyDown(KeyCode.Return))
         {
             
@@ -30,6 +32,7 @@ public class MenuPlay : MonoBehaviour
         }
     }
 
+    // Metodo para cambiar de Escena desde el Canvas
     public void PlayGame()
     {
         SceneManager.LoadScene("GamePlay");

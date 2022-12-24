@@ -38,8 +38,9 @@ public class ReloadButton : MonoBehaviour
     int sightLevel; 
     [SerializeField] Text sightLevelText;
     
-    void Start()
+    void Awake()
     {
+      // Carga todas las variable
        level = PlayerPrefs.GetInt("level");
        energyBar = PlayerPrefs.GetInt("energy");
        player.money = PlayerPrefs.GetInt("money");
@@ -50,12 +51,45 @@ public class ReloadButton : MonoBehaviour
         sightLevel = PlayerPrefs.GetInt("sightLevel");
 
 
-       // Desarrollar esto, para controlar los niveles y mejoras 
-       if(bulletsLevel==2)
-       {
-            maxBullets = 12;
-       }
+       // Mejoras número de balas (máximo cargador pistola)
+       if(bulletsLevel==2) maxBullets = 12;
+         if(bulletsLevel==3) maxBullets = 18;
+            if(bulletsLevel==4) maxBullets = 24;
 
+
+        // Mejoras energia (vida player)
+        if(energyLevel==2) energyBar = 20;
+         if(energyLevel==3) energyBar = 30;
+            if(energyLevel==4) energyBar = 40;
+              if(energyLevel==5) energyBar = 50;
+                if(energyLevel==6) energyBar = 60;
+                 if(energyLevel==7) energyBar = 70;  
+                    if(energyLevel==8) energyBar = 80;
+                        if(energyLevel==9) energyBar = 90;
+                            if(energyLevel==10) energyBar = 100;
+
+        // Mejoras fuerza (calibre balas)
+        if(strengthLevel==2) player.strength = 20;
+         if(strengthLevel==3) player.strength = 30;
+            if(strengthLevel==4) player.strength = 40;
+                if(strengthLevel==5) player.strength = 50;
+                 if(strengthLevel==6) player.strength = 60;
+                   if(strengthLevel==7) player.strength = 70;
+                    if(strengthLevel==8) player.strength = 80;
+                     if(strengthLevel==9) player.strength = 90;
+                        if(strengthLevel==10) player.strength = 100;
+
+
+
+        // Mejoras visión (ampliar vision camara)
+        if(sightLevel==2) player.sight = 58;
+         if(sightLevel==3) player.sight = 56;
+            if(sightLevel==4) player.sight = 54;
+             if(sightLevel==5) player.sight = 52;
+              if(sightLevel==6) player.sight = 50;
+
+
+       // Actualiza el canvas y la recarga de pistola
        ReloadCanvas();
        Reload();
 
@@ -67,6 +101,7 @@ public class ReloadButton : MonoBehaviour
         
     }
 
+    // Boton de recarga de la pistola
     public void Reload()
     {
        if (player.bulletsPlayer< maxBullets) 
@@ -85,6 +120,7 @@ public class ReloadButton : MonoBehaviour
 
     }
 
+    // Actualiza el canvas
     public void ReloadCanvas()
     {
         int ammo = player.bulletsPlayer;  

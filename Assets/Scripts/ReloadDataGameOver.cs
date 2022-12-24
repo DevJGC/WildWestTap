@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
+// Este Script se encarga de cargar los datos de la partida guardada, y mostrarlos en el canvas de GameOver
 public class ReloadDataGameOver : MonoBehaviour
 {
     // Variables primarias estaticas (de inicio)
@@ -60,12 +60,6 @@ public class ReloadDataGameOver : MonoBehaviour
     
     void Awake()
     {
-        // Crea las variables, y si no existen, les asigna valor inicial
-     
-    
-
-    
-
 
         // Salva las variables
 
@@ -89,42 +83,17 @@ public class ReloadDataGameOver : MonoBehaviour
 
 
 
-        
 
-
-        // Muestra variables por consola
-
-         
-        // Debug.Log("Energía " + energy);
-        // Debug.Log("Fuerza " + strength);
-        // Debug.Log("Visión " + sight);
-
-        // Debug.Log("Balas Max " + bulletsMax);
-        // Debug.Log("Energía Max " + energyMax);
-        // Debug.Log("Fuerza Max " + strengthMax);
-        // Debug.Log("Visión Max " + sightMax);
-
-
-        // Debug.Log("Balas Level " + bulletsLevel);
-        // Debug.Log("Energía Level " + energyLevel);
-        // Debug.Log("Fuerza Level " + strengthLevel);
-        // Debug.Log("Visión Level " + sightLevel);
-
-
-        // Debug.Log("Nivel " + level);
-        // Debug.Log("Dinero " + money);
-
-
-
-        
+        // Sincroniza el canvas
         SynVariablesToCanvas();
-      //  Debug.Log("Balas " + bullets);
+
 
         
     }
 
     void Start()
     {
+      // Activa botones de compra
       ActiveButtonsBuy();
 
     }
@@ -137,7 +106,7 @@ public class ReloadDataGameOver : MonoBehaviour
     }
 
 
-    // Funciones de actualización de variables
+    // Funciones de actualización de variables y Canvas
    public void SynVariablesToCanvas()
    {
         
@@ -163,6 +132,7 @@ public class ReloadDataGameOver : MonoBehaviour
   public void ActiveButtonsBuy()
   {
 
+    // Si no llegas a 100 dolares, desactiva botones de compra o los activa si es igual o mayor que 100
     if (money < 100)
     {
 
@@ -179,6 +149,7 @@ public class ReloadDataGameOver : MonoBehaviour
       sightButton.interactable = true;
     }
 
+    // Si el nivel de mejora es igual o maximo, desactiva el boton de compra
     if (bulletsLevel>=4) bulletButton.interactable = false;
     
     if (energyLevel>=10) energyButton.interactable = false;
@@ -190,6 +161,7 @@ public class ReloadDataGameOver : MonoBehaviour
 
   }
 
+  // Funciones de compra
   public void Buy()
   {
     money -= 100;
@@ -198,6 +170,8 @@ public class ReloadDataGameOver : MonoBehaviour
     ActiveButtonsBuy();
   }
 
+  
+  // Funcion publica del canvas para comprar mas municion
   public void BuyBullets()
   {
     bulletsLevel++;
@@ -211,6 +185,49 @@ public class ReloadDataGameOver : MonoBehaviour
     PlayerPrefs.SetInt("bulletsLevel", bulletsLevel);
 
   }
+
+  // Funcion publica del canvas para comprar mas energia
+  public void BuyEnergy()
+  {
+    energyLevel ++;
+    //energyMax += 10;
+    //energy += 10;
+    //energyText.text = energy.ToString();
+    //energyMaxText.text = energyMax.ToString();
+    energyLevelText.text = energyLevel.ToString();
+    //PlayerPrefs.SetInt("energy", energy);
+    //PlayerPrefs.SetInt("energyMax", energyMax);
+    PlayerPrefs.SetInt("energyLevel", energyLevel);
+  }
+
+  // Funcion publica del canvas para comprar mas fuerza o calibre
+  public void BuyStrength()
+  {
+    strengthLevel ++;
+    //strengthMax += 10;
+    //strength += 10;
+    //strengthText.text = strength.ToString();
+    //strengthMaxText.text = strengthMax.ToString();
+    strengthLevelText.text = strengthLevel.ToString();
+    //PlayerPrefs.SetInt("strength", strength);
+    //PlayerPrefs.SetInt("strengthMax", strengthMax);
+    PlayerPrefs.SetInt("strengthLevel", strengthLevel);
+  }
+
+  // Funcion publica del canvas para comprar mas vision
+  public void BuySight()
+  {
+    sightLevel ++;
+    //sightMax += 10;
+    //sight += 10;
+    //sightText.text = sight.ToString();
+    //sightMaxText.text = sightMax.ToString();
+    sightLevelText.text = sightLevel.ToString();
+    //PlayerPrefs.SetInt("sight", sight);
+    //PlayerPrefs.SetInt("sightMax", sightMax);
+    PlayerPrefs.SetInt("sightLevel", sightLevel);
+  }
+  
 
 
 
