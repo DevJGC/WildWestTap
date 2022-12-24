@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LoadVariables : MonoBehaviour
 {
+    // Detecta la primera carga
+    [SerializeField] int firstLoad;
+
     // Variables primarias estaticas (de inicio)
     int bullets;
     int energy;
@@ -27,6 +30,43 @@ public class LoadVariables : MonoBehaviour
     int level;
     int money;
 
+    void Awake()
+    {
+        // Si no existe la variable firstLoad, se crea y se asigna valor 0
+        if (!PlayerPrefs.HasKey("firstLoad"))
+        {
+            PlayerPrefs.SetInt("firstLoad", 0);
+        }
+
+        // Si firstLoad es 0, se crea las variables, y si no existen, les asigna valor inicial
+        if (PlayerPrefs.GetInt("firstLoad") == 0)
+        {
+            PlayerPrefs.SetInt("bullets", 6);
+            PlayerPrefs.SetInt("energy", 10);
+            PlayerPrefs.SetInt("strength", 10);
+            PlayerPrefs.SetInt("sight", 60);
+
+            PlayerPrefs.SetInt("bulletsMax", 24);
+            PlayerPrefs.SetInt("energyMax", 100);
+            PlayerPrefs.SetInt("strengthMax", 100);
+            PlayerPrefs.SetInt("sightMax", 50);
+
+            PlayerPrefs.SetInt("bulletsLevel", 1);
+            PlayerPrefs.SetInt("energyLevel", 1);
+            PlayerPrefs.SetInt("strengthLevel", 1);
+            PlayerPrefs.SetInt("sightLevel", 1);
+
+            PlayerPrefs.SetInt("level", 0);
+            PlayerPrefs.SetInt("money", 0);
+
+            // Se cambia el valor de firstLoad a 1
+            PlayerPrefs.SetInt("firstLoad", 1);
+            firstLoad = 1;
+
+        }
+
+
+    }
 
     
     void Start()
@@ -49,12 +89,14 @@ public class LoadVariables : MonoBehaviour
         PlayerPrefs.GetInt("strengthLevel", 1);
         PlayerPrefs.GetInt("sightLevel", 1);
 
-        PlayerPrefs.GetInt("level", 1);
+        PlayerPrefs.GetInt("level", 0);
         PlayerPrefs.GetInt("money", 0);
     
 
 
         // Salva las variables
+
+        firstLoad = PlayerPrefs.GetInt("firstLoad");
 
         bullets = PlayerPrefs.GetInt("bullets");
         energy = PlayerPrefs.GetInt("energy");
@@ -84,7 +126,7 @@ public class LoadVariables : MonoBehaviour
     // Si se pulsa R se resetean todos los valores (para testeo)
     void Update()
     {
-     if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             
         PlayerPrefs.SetInt("bullets", 6);
@@ -106,6 +148,7 @@ public class LoadVariables : MonoBehaviour
         PlayerPrefs.SetInt("money", 0);
 
         }
+
         
     }
 }
