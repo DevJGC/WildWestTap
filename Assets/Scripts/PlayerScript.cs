@@ -67,6 +67,13 @@ public class PlayerScript : MonoBehaviour
     }
     void Start()
     {
+        strength = strengthLevel * 10;
+
+        //Revisar ESTAS 2 LINEAS!!!
+        //sight = sightLevel * 10;
+       // energy = energyLevel * 10;
+
+        
 
         
     }

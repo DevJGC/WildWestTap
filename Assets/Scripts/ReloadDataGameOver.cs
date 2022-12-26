@@ -55,7 +55,9 @@ public class ReloadDataGameOver : MonoBehaviour
     [SerializeField] Button strengthButton;
     [SerializeField] Button sightButton;
 
-
+    // Sonidos
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip buySound;
 
     
     void Awake()
@@ -164,6 +166,7 @@ public class ReloadDataGameOver : MonoBehaviour
   // Funciones de compra
   public void Buy()
   {
+    audioSource.PlayOneShot(buySound);
     money -= 100;
     moneyText.text = money.ToString();
     PlayerPrefs.SetInt("money", money);
